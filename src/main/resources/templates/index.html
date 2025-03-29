@@ -4,73 +4,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>清潔公司</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- 引入 Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 引入 Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+
   <!-- 頭部區塊 -->
-  <header id="header">
-    <div class="container">
+  <header id="header" class="bg-primary text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
       <div class="logo">
-        <h1>清潔公司</h1>
+        <h1 class="h3 mb-0">清潔公司</h1>
       </div>
       <nav>
-        <ul>
-          <li><a href="#about">關於我們</a></li>
-          <li><a href="#services">服務項目</a></li>
-          <li><a href="#contact">聯絡我們</a></li>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link text-white" href="#about">關於我們</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#services">服務項目</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#contact">聯絡我們</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- 首頁區塊 -->
-  <section id="hero">
-    <div class="hero-content">
+  <section id="hero" class="bg-info text-white py-5">
+    <div class="container text-center">
       <h2>專業清潔，您的安心選擇</h2>
       <p>讓我們為您提供高效、環保的清潔服務</p>
-      <a href="#contact" class="cta-button">立即預約</a>
+      <a href="#contact" class="btn btn-light btn-lg">立即預約</a>
     </div>
   </section>
 
   <!-- 關於我們 -->
-  <section id="about">
+  <section id="about" class="py-5">
     <div class="container">
       <h2>關於我們</h2>
       <p>成立於1990年的<span style="color:blue">喬保大樓管理顧問股份有限公司</span>擁有十分專業的技術與多年的市場經驗。
-	  『清潔及環保』是我們堅持的服務目標，<span style="color:blue">本著「專業、確實、安全、負責」的理念</span>，提供最好的辦
-	  公及公共整潔空間，我們全員投入始終抱持著以客為尊的目標，希望藉此能讓我們的努力與
-	  付出能夠得到企業的肯定與喜愛。源源不絕的動力、嶄新的觀念與執著的熱誠；達成客戶需求
-	  為首要是我們的信念，為企業創造出高尚美好的生活品質與空間。
-	 </p>
+      『清潔及環保』是我們堅持的服務目標，<span style="color:blue">本著「專業、確實、安全、負責」的理念</span>，提供最好的辦
+      公及公共整潔空間，我們全員投入始終抱持著以客為尊的目標，希望藉此能讓我們的努力與
+      付出能夠得到企業的肯定與喜愛。源源不絕的動力、嶄新的觀念與執著的熱誠；達成客戶需求
+      為首要是我們的信念，為企業創造出高尚美好的生活品質與空間。</p>
     </div>
   </section>
 
   <!-- 服務項目 -->
-  <section id="services">
+  <section id="services" class="bg-light py-5">
     <div class="container">
       <h2>服務項目</h2>
-	  環境清潔人員駐點/&nbsp;辦公室清潔維護/&nbsp;地毯清洗/&nbsp;地板清洗上蠟/&nbsp;石材晶化美容/&nbsp;病媒防治消毒/
-	  &nbsp;水塔清洗/&nbsp;停車場清洗/&nbsp;裝潢後細部清潔
+      <ul>
+        <li>環境清潔人員駐點</li>
+        <li>辦公室清潔維護</li>
+        <li>地毯清洗</li>
+        <li>地板清洗上蠟</li>
+        <li>石材晶化美容</li>
+        <li>病媒防治消毒</li>
+        <li>水塔清洗</li>
+        <li>停車場清洗</li>
+        <li>裝潢後細部清潔</li>
+      </ul>
     </div>
   </section>
 
-
   <!-- 聯絡我們 -->
-  <section id="contact">
+  <section id="contact" class="py-5">
     <div class="container">
       <h2>聯絡我們</h2>
-      <form id = "contactForm">
-        <input type="text" name="name" placeholder="您的姓名" required>
-        <input type="email" name="email" placeholder="您的電子郵件" required><br>
-        <textarea style = "width: 339px; height:83px" name="message" placeholder="請輸入您的需求..." required></textarea><br>
-        <button type="submit">送出</button>
+      <form id="contactForm">
+        <div class="mb-3">
+          <input type="text" name="name" class="form-control" placeholder="您的姓名" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" name="email" class="form-control" placeholder="您的電子郵件" required>
+        </div>
+        <div class="mb-3">
+          <textarea name="message" class="form-control" placeholder="請輸入您的需求..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">送出</button>
       </form>
-      <div class="contact-info">
+      <div class="contact-info mt-4">
         <p>電話：02-2828-5525</p>
       </div>
     </div>
   </section>
+
+  <!-- 網站底部 -->
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+      <p>&copy; 喬保大樓管理顧問股份有限公司</p>
+    </div>
+  </footer>
+
+  <!-- 引入 Bootstrap JS 和 Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
   <script>
     document.getElementById('contactForm').addEventListener('submit', function(event) {
       event.preventDefault(); // 防止表單的默認提交行為
@@ -97,12 +125,6 @@
       });
     });
   </script>
-  <!-- 網站底部 -->
-  <footer>
-    <div class="container">
-      <p>&copy; 喬保大樓管理顧問股份有限公司</p>
-    </div>
-  </footer>
 
 </body>
 </html>
