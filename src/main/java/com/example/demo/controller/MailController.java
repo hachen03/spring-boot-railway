@@ -18,7 +18,7 @@ public class MailController {
 	private MailService mailService;
 	
 	@PostMapping("/send-email")
-	public String sendEmail(@RequestBody Map<String, String> request) {
+	public String sendEmail(@RequestBody Map<String, String> request) { //有標註@RequestBody 時，Spring 框架會自動使用 HttpMessageConverter 來處理請求的 body。其中，MappingJackson2HttpMessageConverter 是一個常見的 JSON 轉換器，它會將接收到的 JSON 字串轉換為 Java 物件。
 		String name = request.get("name");
 		String email = request.get("email");
         String message = request.get("message");

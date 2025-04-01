@@ -65,8 +65,9 @@
       </ul>
     </div>
   </section>
-
-  <!-- 聯絡我們 -->
+  
+  <div id="formMessage"></div> <!--成功或錯誤訊息-->
+  
   <section id="contact" class="py-5">
     <div class="container">
       <h2>聯絡我們</h2>
@@ -103,9 +104,13 @@
     document.getElementById('contactForm').addEventListener('submit', function(event) {
       event.preventDefault(); // 防止表單的默認提交行為
 
-      const formData = new FormData(this);
+	  const form = this; // 獲取表單元素
+	  const submitButton = form.querySelector("button[type='submit']"); // 取得提交按鈕
+	  submitButton.disabled = true; // 禁用按鈕，防止重複提交
+	  submitButton.textContent = "處理中..."; // 修改按鈕文字
+      const formData = new FormData(form);
       const data = {};
-      formData.forEach((value, key) => {
+      formData.forEach((value, key) => { //將formData轉換為物件
         data[key] = value;
       });
 
@@ -114,16 +119,32 @@
         headers: {
           'Content-Type': 'application/json' // 設置請求的內容類型為 JSON
         },
-        body: JSON.stringify(data) // 將表單數據轉換為 JSON 格式
+        body: JSON.stringify(data) // 將表單數據轉換為 JSON 格式 //fetch傳遞post請求需要將物件轉換為字串
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
+      .then(response => response.text())
+	  .then(message => {
+	      showMessage(message, 'success');
+	      form.reset(); // 清空表單
+	    })
       .catch((error) => {
         console.error('Error:', error);
-      });
+		showMessage('郵件發送失敗，請稍後再試！', 'danger');
+      })
+	  .finally(() => {
+		submitButton.disabled = false; //啟用按鈕
+		submitButton.textContent = '送出';//恢復按鈕文字
+	  })
     });
+	
+	
+    function showMessage(message, type) {
+    const messageDiv = document.getElementById('formMessage');
+    messageDiv.innerHTML = `<div class="alert alert-${type} mt-3">${message}</div>`;
+	
+	setTimeout(() => {
+	    messageDiv.innerHTML = '';
+	  }, 3000);
+  }
   </script>
 
 </body>
